@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SVGKit
 
 class ViewController: UIViewController {
     
     @IBOutlet var textField: UITextField!
+    @IBOutlet var imageView: UIImageView!
     
     var country: Country?
     
@@ -18,8 +20,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func getDataButtonPressed(_ sender: Any) {
-        guard let country = textField.text else { return }
-        getData(with: country)
+        guard let countryText = textField.text else { return }
+        getData(with: countryText)
+        guard let flagURL = self.country?.flag else { return }
+        imageView.image = getImage(from: flagURL)
+    }
+    
+    func getImage(from string: String) -> UIImage? {
+        var flagImage: UIImage? = nil
+        guard let url = URL(string: string)
+        else {
+            print("Unable to create URL")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url, options: [])
+            let flagSVGImage: SVGKImage = SVGKImage(data: data)
+            flagImage = flagSVGImage.uiImage
+            
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+        return flagImage
     }
 }
 
