@@ -26,26 +26,6 @@ class ViewController: UIViewController {
         imageView.image = getImage(from: flagURL)
     }
     
-    func getImage(from string: String) -> UIImage? {
-        var flagImage: UIImage? = nil
-        guard let url = URL(string: string)
-        else {
-            print("Unable to create URL")
-            return nil
-        }
-        
-        do {
-            let data = try Data(contentsOf: url, options: [])
-            let flagSVGImage: SVGKImage = SVGKImage(data: data)
-            flagImage = flagSVGImage.uiImage
-            
-        }
-        catch {
-            print(error.localizedDescription)
-        }
-        
-        return flagImage
-    }
 }
 
 extension ViewController {
@@ -74,5 +54,24 @@ extension ViewController {
             print(error)
             return nil
         }
+    }
+    
+   private func getImage(from string: String) -> UIImage? {
+        var flagImage: UIImage? = nil
+        guard let url = URL(string: string)
+        else {
+            print("Unable to create URL")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url, options: [])
+            let flagSVGImage: SVGKImage = SVGKImage(data: data)
+            flagImage = flagSVGImage.uiImage
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        return flagImage
     }
 }

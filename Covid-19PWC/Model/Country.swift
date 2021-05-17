@@ -11,5 +11,6 @@ struct Country: Codable {
     let flag: String
     let name: String
     let alpha3Code: String
+    let alpha2Code: String
     
 }
