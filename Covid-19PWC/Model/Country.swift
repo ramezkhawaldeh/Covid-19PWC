@@ -12,5 +12,4 @@ struct Country: Codable {
     let name: String
     let alpha3Code: String
     let alpha2Code: String
-    
 }

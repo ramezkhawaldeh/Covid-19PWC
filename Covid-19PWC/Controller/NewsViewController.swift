@@ -17,7 +17,7 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isHidden = true
-        tableView.register(NewsTableViewCell.self)
+        tableView.register(NewsTableViewCellPOC.self)
     }
     
     @IBAction func didPressGoButton(_ sender: Any) {
@@ -31,7 +31,7 @@ class NewsViewController: UIViewController {
     }
     
     private func getData(with country: String, completionHandler: @escaping () -> Void = {}) {
-        if let url = URL(string: "https://newsapi.org/v2/top-headlines?country=\(country)&category=\(NewsCategory.health)&apiKey=\(APIKey.news.rawValue)") {
+        if let url = URL(string: "(country)&category=\(NewsCategory.health)&apiKey=\(APIKey.news.rawValue)") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {
@@ -71,7 +71,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let newsData = self.news, newsData.totalResults > 0 else {
             return UITableViewCell()
         }
-        let cell: NewsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        let cell: NewsTableViewCellPOC = tableView.dequeueReusableCell(for: indexPath)
         cell.config(with: newsData.articles[indexPath.row])
         return cell
     }

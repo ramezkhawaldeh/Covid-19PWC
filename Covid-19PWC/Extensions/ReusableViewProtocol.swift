@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ReusableView: class {
+protocol ReusableView: AnyObject {
     static var defaultReuseIdentifier: String { get }
 }
 
@@ -17,7 +17,7 @@ extension ReusableView where Self: UIView {
     }
 }
 
-protocol NibLoadableView: class {
+protocol NibLoadableView: AnyObject {
     static var nibName: String { get }
 }
 

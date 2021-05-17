@@ -9,13 +9,14 @@ import Foundation
 
 struct CovidCases: Codable {
     var dates: Dates
+    var total: CasesCount
 }
 
 struct Countries: Codable {
     var countries: CountriesData
 }
 
-struct RestOfResponse: Codable {
+struct CasesCount: Codable {
     let today_confirmed: Double
     let today_deaths: Double
     let today_new_confirmed: Double
@@ -35,7 +36,7 @@ struct RestOfResponse: Codable {
 }
 
 typealias Dates = [String: Countries]
-typealias CountriesData = [String: RestOfResponse]
+typealias CountriesData = [String: CasesCount]
 
 //for country and date range
 //https://api.covid19tracking.narrativa.com/api/country/\(spain)?date_from=\(2020-03-20)&date_to=\(2020-03-22)
