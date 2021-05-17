@@ -77,6 +77,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="date" destination="xzI-nS-ssB" id="f1I-y7-7Oh"/>
+                <outlet property="descriptionLabel" destination="SLN-wL-uRy" id="eBx-yc-udc"/>
+                <outlet property="newsImageView" destination="T36-jh-0zS" id="cjN-TC-VDQ"/>
+                <outlet property="sourceName" destination="0HK-UP-09x" id="FQP-da-5OZ"/>
+                <outlet property="title" destination="4wu-u8-f4E" id="rKV-C5-5vk"/>
+                <outlet property="url" destination="Fno-Qh-qw4" id="VTB-Rt-Dg0"/>
+            </connections>
             <point key="canvasLocation" x="329.71014492753625" y="283.59375"/>
         </tableViewCell>
     </objects>

@@ -17,6 +17,7 @@
 		9286F7C12652973B00EA0864 /* UITableView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7C02652973B00EA0864 /* UITableView-Extension.swift */; };
 		9286F7C3265297EE00EA0864 /* UITableViewCell-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7C2265297EE00EA0864 /* UITableViewCell-Extension.swift */; };
 		9286F7C52652985600EA0864 /* NSObject-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7C42652985600EA0864 /* NSObject-Extension.swift */; };
+		9286F7C72652B02300EA0864 /* CovidCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7C62652B02300EA0864 /* CovidCases.swift */; };
 		92DA72EF2652664900DA354B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA72EE2652664900DA354B /* AppDelegate.swift */; };
 		92DA72F12652664900DA354B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA72F02652664900DA354B /* SceneDelegate.swift */; };
 		92DA72F32652664900DA354B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA72F22652664900DA354B /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 		9286F7C02652973B00EA0864 /* UITableView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView-Extension.swift"; sourceTree = "<group>"; };
 		9286F7C2265297EE00EA0864 /* UITableViewCell-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell-Extension.swift"; sourceTree = "<group>"; };
 		9286F7C42652985600EA0864 /* NSObject-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject-Extension.swift"; sourceTree = "<group>"; };
+		9286F7C62652B02300EA0864 /* CovidCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCases.swift; sourceTree = "<group>"; };
 		92DA72EB2652664900DA354B /* Covid-19PWC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19PWC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DA72EE2652664900DA354B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92DA72F02652664900DA354B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				92DA73022652666E00DA354B /* Country.swift */,
 				9220CAA9265278CE009949D8 /* News.swift */,
+				9286F7C62652B02300EA0864 /* CovidCases.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				92DA72EF2652664900DA354B /* AppDelegate.swift in Sources */,
 				9220CAAA265278CE009949D8 /* News.swift in Sources */,
 				92DA72F12652664900DA354B /* SceneDelegate.swift in Sources */,
+				9286F7C72652B02300EA0864 /* CovidCases.swift in Sources */,
 				9286F7C52652985600EA0864 /* NSObject-Extension.swift in Sources */,
 				9220CAB126527F5A009949D8 /* NewsViewController.swift in Sources */,
 				9286F7C3265297EE00EA0864 /* UITableViewCell-Extension.swift in Sources */,

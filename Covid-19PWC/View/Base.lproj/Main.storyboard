@@ -80,6 +80,9 @@
                                             <constraint firstAttribute="width" secondItem="OB2-w5-x4L" secondAttribute="height" multiplier="1:1" id="ldu-f7-nu2"/>
                                         </constraints>
                                         <state key="normal" title="Go!"/>
+                                        <connections>
+                                            <action selector="didPressGoButton:" destination="UBI-7R-x4I" eventType="touchUpInside" id="JV2-XN-1ic"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Country " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dk4-fg-DZL">
                                         <rect key="frame" x="16" y="16" width="330" height="36"/>
@@ -122,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countryTextField" destination="dk4-fg-DZL" id="CJy-xv-OiE"/>
                         <outlet property="tableView" destination="AQk-6e-oLB" id="wNr-Bb-8gK"/>
                     </connections>
                 </viewController>
