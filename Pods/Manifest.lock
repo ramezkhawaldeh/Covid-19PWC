@@ -2,21 +2,25 @@ PODS:
   - CocoaLumberjack (3.7.2):
     - CocoaLumberjack/Core (= 3.7.2)
   - CocoaLumberjack/Core (3.7.2)
+  - FloatingPanel (2.3.1)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
 
 DEPENDENCIES:
+  - FloatingPanel
   - SVGKit
 
 SPEC REPOS:
   trunk:
     - CocoaLumberjack
+    - FloatingPanel
     - SVGKit
 
 SPEC CHECKSUMS:
   CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
+  FloatingPanel: fb9fd997f369e1f5f350d8bab41527c8d6fe2e0d
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
 
-PODFILE CHECKSUM: f758caac56c0e1991d1d47c1d8560e74fcdc82e3
+PODFILE CHECKSUM: 2b2a5d1320114b63022be64127c56ffd90826744
 
 COCOAPODS: 1.10.1

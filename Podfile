@@ -7,5 +7,6 @@ target 'Covid-19PWC' do
 
   # Pods for Covid-19PWC
   pod 'SVGKit'
+  pod 'FloatingPanel'
 
 end
