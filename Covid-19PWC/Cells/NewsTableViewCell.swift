@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsTableViewCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,19 +13,20 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: "cell")
+       
+        tableView.register(NewsTableViewCell.self)
     }
     
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell: NewsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        return cell
     }
     
     
