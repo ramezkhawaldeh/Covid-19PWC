@@ -32,9 +32,7 @@ class MainViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        self.country = self.getReversedGeoLocation(coordinates: locationManager.location?.coordinate)
-        guard let country = country else {return}
-        self.getCases(country: country)
+        self.getReversedGeoLocation(coordinates: locationManager.location?.coordinate)
     }
 
     private func parseJSON(with data: Data) -> CovidCases? {
@@ -99,12 +97,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: CLLocationManagerDelegate {
  
-    func getReversedGeoLocation(coordinates: CLLocationCoordinate2D?) -> String? {
-        var country: String?
-        guard let coordinates = coordinates else { return "" }
+    func getReversedGeoLocation(coordinates: CLLocationCoordinate2D?) {
+        guard let coordinates = coordinates else {return}
         geoCoder.reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)) { placemarks, _ in
-            country = placemarks?.first?.country
+            if let country = placemarks?.first?.country {
+            self.getCases(country: country)
+            }
         }
-        return country
     }
 }
