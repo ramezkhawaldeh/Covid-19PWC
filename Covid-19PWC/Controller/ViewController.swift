@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         guard let flagURL = self.country?.flag else { return }
         imageView.image = getImage(from: flagURL)
     }
-    
 }
 
 extension ViewController {
