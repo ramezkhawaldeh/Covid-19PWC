@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lmn-jc-Y8B">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lmn-jc-Y8B">
+                                <rect key="frame" x="16" y="88" width="382" height="774"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mLI-te-Ilb"/>
@@ -27,8 +26,8 @@
                         <constraints>
                             <constraint firstItem="lmn-jc-Y8B" firstAttribute="top" secondItem="mLI-te-Ilb" secondAttribute="top" id="2XB-cD-KrX"/>
                             <constraint firstItem="mLI-te-Ilb" firstAttribute="bottom" secondItem="lmn-jc-Y8B" secondAttribute="bottom" id="GxX-Os-D89"/>
-                            <constraint firstItem="lmn-jc-Y8B" firstAttribute="leading" secondItem="mLI-te-Ilb" secondAttribute="leading" id="HwQ-FW-oGN"/>
-                            <constraint firstItem="mLI-te-Ilb" firstAttribute="trailing" secondItem="lmn-jc-Y8B" secondAttribute="trailing" id="kBf-Gg-aDU"/>
+                            <constraint firstItem="lmn-jc-Y8B" firstAttribute="leading" secondItem="mLI-te-Ilb" secondAttribute="leading" constant="16" id="HwQ-FW-oGN"/>
+                            <constraint firstItem="mLI-te-Ilb" firstAttribute="trailing" secondItem="lmn-jc-Y8B" secondAttribute="trailing" constant="16" id="kBf-Gg-aDU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7gs-5X-IgD"/>
@@ -246,6 +245,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3M-X1-r3x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2520" y="-97"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="08y-qJ-FY9">
+            <objects>
+                <viewController id="VCq-4p-cMp" customClass="testViewController" customModule="Covid_19PWC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="snw-U9-FGU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8dr-3L-kWl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcP-qf-kwU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1683" y="609"/>
         </scene>
     </scenes>
     <resources>

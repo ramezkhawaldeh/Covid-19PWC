@@ -12,7 +12,7 @@ struct CovidCases: Codable {
     var total: CasesCount
 }
 
-struct Countries: Codable {
+struct CovidCountries: Codable {
     var countries: CountriesData
 }
 
@@ -35,7 +35,7 @@ struct CasesCount: Codable {
     let yesterday_recovered: Double
 }
 
-typealias Dates = [String: Countries]
+typealias Dates = [String: CovidCountries]
 typealias CountriesData = [String: CasesCount]
 
 //for country and date range

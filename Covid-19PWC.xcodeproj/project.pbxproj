@@ -24,6 +24,8 @@
 		925F40882652FB1B00FC3D99 /* DashboardGlobalRecoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F40862652FB1B00FC3D99 /* DashboardGlobalRecoveryTableViewCell.xib */; };
 		925F408B2652FB3500FC3D99 /* DashboardGlobalDeathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F40892652FB3500FC3D99 /* DashboardGlobalDeathTableViewCell.swift */; };
 		925F408C2652FB3500FC3D99 /* DashboardGlobalDeathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925F408A2652FB3500FC3D99 /* DashboardGlobalDeathTableViewCell.xib */; };
+		925F4091265435C700FC3D99 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F4090265435C700FC3D99 /* Capital.swift */; };
+		925F4093265441D200FC3D99 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F4092265441D200FC3D99 /* testViewController.swift */; };
 		9286F7BF2652961100EA0864 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7BE2652961100EA0864 /* ReusableViewProtocol.swift */; };
 		9286F7C12652973B00EA0864 /* UITableView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7C02652973B00EA0864 /* UITableView-Extension.swift */; };
 		9286F7C3265297EE00EA0864 /* UITableViewCell-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286F7C2265297EE00EA0864 /* UITableViewCell-Extension.swift */; };
@@ -60,6 +62,8 @@
 		925F40862652FB1B00FC3D99 /* DashboardGlobalRecoveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardGlobalRecoveryTableViewCell.xib; sourceTree = "<group>"; };
 		925F40892652FB3500FC3D99 /* DashboardGlobalDeathTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGlobalDeathTableViewCell.swift; sourceTree = "<group>"; };
 		925F408A2652FB3500FC3D99 /* DashboardGlobalDeathTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardGlobalDeathTableViewCell.xib; sourceTree = "<group>"; };
+		925F4090265435C700FC3D99 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		925F4092265441D200FC3D99 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		9286F7BE2652961100EA0864 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		9286F7C02652973B00EA0864 /* UITableView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView-Extension.swift"; sourceTree = "<group>"; };
 		9286F7C2265297EE00EA0864 /* UITableViewCell-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell-Extension.swift"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				92DA73022652666E00DA354B /* Country.swift */,
 				9220CAA9265278CE009949D8 /* News.swift */,
 				9286F7C62652B02300EA0864 /* CovidCases.swift */,
+				925F4090265435C700FC3D99 /* Capital.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				925F40732652E64700FC3D99 /* MapViewController.swift */,
 				925F40752652E93700FC3D99 /* NewsFloatingViewController.swift */,
 				925F407E2652F5C400FC3D99 /* MainViewController.swift */,
+				925F4092265441D200FC3D99 /* testViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				9220CAAD26527D23009949D8 /* NewsCategory.swift in Sources */,
 				925F407F2652F5C400FC3D99 /* MainViewController.swift in Sources */,
 				925F40872652FB1B00FC3D99 /* DashboardGlobalRecoveryTableViewCell.swift in Sources */,
+				925F4091265435C700FC3D99 /* Capital.swift in Sources */,
 				92DA72EF2652664900DA354B /* AppDelegate.swift in Sources */,
 				9220CAAA265278CE009949D8 /* News.swift in Sources */,
 				92DA72F12652664900DA354B /* SceneDelegate.swift in Sources */,
@@ -360,6 +367,7 @@
 				9286F7C52652985600EA0864 /* NSObject-Extension.swift in Sources */,
 				925F40832652FB0300FC3D99 /* DashboardTotalGlobalCasesTableViewCell.swift in Sources */,
 				9220CAB126527F5A009949D8 /* NewsViewController.swift in Sources */,
+				925F4093265441D200FC3D99 /* testViewController.swift in Sources */,
 				9286F7C3265297EE00EA0864 /* UITableViewCell-Extension.swift in Sources */,
 				9220CAB5265289DE009949D8 /* NewsTableViewCellPOC.swift in Sources */,
 				9286F7C12652973B00EA0864 /* UITableView-Extension.swift in Sources */,

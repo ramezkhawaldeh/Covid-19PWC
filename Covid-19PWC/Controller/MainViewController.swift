@@ -59,23 +59,61 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "goToMapsView", sender: self)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Global Cases Count:"
+        case 1:
+            guard let country = self.country else { return "Your Current Location" }
+            return "\(country) Cases Count:"
+        default:
+            return nil
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = cases else {
             return UITableViewCell()
         }
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            let cell: DashboardTotalGlobalCasesTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.fill(with: data.total.today_confirmed)
-            return cell
+            switch indexPath.row {
+            case 0:
+                let cell: DashboardTotalGlobalCasesTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.fill(with: data.total.today_confirmed)
+                return cell
+            case 1:
+                let cell: DashboardGlobalDeathTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.fill(with: data.total.today_deaths)
+                return cell
+            case 2:
+                let cell: DashboardGlobalRecoveryTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.fill(with: data.total.today_recovered)
+                return cell
+            default:
+                return UITableViewCell()
+            }
         case 1:
-            let cell: DashboardGlobalDeathTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.fill(with: data.total.today_deaths)
-            return cell
-        case 2:
-            let cell: DashboardGlobalRecoveryTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.fill(with: data.total.today_recovered)
-            return cell
+            switch indexPath.row {
+            case 0:
+                let cell: DashboardTotalGlobalCasesTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.fill(with: data.total.today_confirmed)
+                return cell
+            case 1:
+                let cell: DashboardGlobalDeathTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.fill(with: data.total.today_deaths)
+                return cell
+            case 2:
+                let cell: DashboardGlobalRecoveryTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.fill(with: data.total.today_recovered)
+                return cell
+            default:
+                return UITableViewCell()
+            }
         default:
             return UITableViewCell()
         }
@@ -88,6 +126,7 @@ extension MainViewController: CLLocationManagerDelegate {
         guard let coordinates = coordinates else {return}
         geoCoder.reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)) { placemarks, error in
             if let country = placemarks?.first?.country, let date = self.date {
+                self.country = country
                 self.getCases(date: date, country: country)
             }
         }
@@ -115,7 +154,8 @@ extension MainViewController {
     }
     
     func getCases(date: String, country: String) {
-        if let url = URL(string:"https://api.covid19tracking.narrativa.com/api/\(date)/country/\(country)") {
+        //"https://api.covid19tracking.narrativa.com/api/\(date)/country/\(country)"
+        if let url = URL(string:"https://api.covid19tracking.narrativa.com/api/2021-05-17/country/\(country)") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {
