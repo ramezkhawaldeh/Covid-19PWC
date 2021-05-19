@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     let annotations = [MKPointAnnotation]()
     var country: String?
     var allCapitals = [AllCountries]()
- 
+    var covidCases: CovidCases?
     var capitals = [Capital]()
     
     override func viewDidLoad() {
@@ -29,15 +29,12 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         mapView.isHidden = true
         
-        //self.addCapitals
         self.getAllCountriesData { flag in
             if flag {
-            self.addCapitals()
+                self.addCapitals(cases: self.covidCases)
             }
         }
-        
     }
-   
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -47,11 +44,8 @@ extension MapViewController: CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: location.coordinate,
                                             latitudinalMeters: 50,
                                             longitudinalMeters: 50)
-            //self.fetchAnnotations()
             mapView.setRegion(region, animated: true)
             mapView.addAnnotations(annotations)
-//            annotation.coordinate = location.coordinate
-//            mapView.addAnnotation(annotation)
             mapView.isHidden = false
         }
     }
@@ -64,44 +58,45 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is Capital else { return nil }
-        let identifier = "Capital"
+        let reuseIdentifier = "Capital"
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
 
             if annotationView == nil {
-                //4
-                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
                 annotationView?.canShowCallout = true
-
-                // 5
                 let btn = UIButton(type: .detailDisclosure)
                 annotationView?.rightCalloutAccessoryView = btn
             } else {
-                // 6
                 annotationView?.annotation = annotation
             }
-
             return annotationView
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSelectedCountry" {
+            if let viewController = segue.destination as? SelectedCountryViewController {
+                viewController.country = self.country
+            }
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let capital = view.annotation as? Capital else { return }
         let placeName = capital.title
         let placeInfo = capital.info
-
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        self.performSegue(withIdentifier: "goToSelectedCountry", sender: self)
     }
 }
+}
+
 
 extension MapViewController {
     
-    func addCapitals() {
+    func addCapitals(cases: CovidCases?) {
         for country in allCapitals {
-            guard let title = country.name, let coordinate = country.latlng else { return }
-            print(country)
-            if !coordinate.isEmpty {
+            guard let title = country.name, let coordinate = country.latlng, let cases = cases else { return }
+            cases.dates.values.first?.countries.first?.value
+            if !coordinate.isEmpty && covidCases != nil {
                 capitals.append(Capital(title: title, coordinate: CLLocationCoordinate2D(latitude: coordinate[0], longitude: coordinate[1]), info: ""))
             }
         }
@@ -156,11 +151,4 @@ extension MapViewController {
     
     
     
-}
-extension Collection {
-
-    /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
 }

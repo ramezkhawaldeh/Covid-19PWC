@@ -16,6 +16,8 @@ struct CovidCountries: Codable {
     var countries: CountriesData
 }
 
+
+
 struct CasesCount: Codable {
     let today_confirmed: Double
     let today_deaths: Double

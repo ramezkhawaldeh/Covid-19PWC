@@ -38,6 +38,7 @@ class MainViewController: UIViewController {
             if segue.identifier == "goToMapsView" {
                 if let viewController = segue.destination as? MapViewController {
                     viewController.country = self.country
+                    viewController.covidCases = self.cases
                 }
             }
         }
@@ -173,3 +174,4 @@ extension MainViewController {
         }
     }
 }
+
