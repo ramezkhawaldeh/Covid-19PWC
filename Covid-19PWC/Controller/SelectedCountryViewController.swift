@@ -28,7 +28,8 @@ class SelectedCountryViewController: UIViewController {
         
         self.imageView.isHidden = true
         self.casesStackView.isHidden = true
-        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         guard let selectedCountry = country else { return }
         guard let date = date else { return }
 
@@ -37,7 +38,14 @@ class SelectedCountryViewController: UIViewController {
             self.getCases(date: date, country: selectedCountry)
             self.getNewsData(country: selectedCountry) { news in
                 self.news = news
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+
+                }
             }
+            
+                
+            
         }
         
     }
@@ -69,10 +77,6 @@ extension SelectedCountryViewController {
                 }
                 news = self?.parseNewsJSON(with: data)
                 completionHandler(news)
-            }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
             }
             
             task.resume()
