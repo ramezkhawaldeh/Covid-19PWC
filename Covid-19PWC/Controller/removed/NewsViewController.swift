@@ -45,6 +45,8 @@ class NewsViewController: UIViewController {
         }
     }
     
+    private func getCountryFlag(country: String) {}
+    
     private func reloadData() {
         self.tableView.reloadData()
         self.tableView.isHidden = false
@@ -90,8 +92,12 @@ extension NewsViewController {
         }
     }
     
+    
+    
     func getCases() {
-        if let url = URL(string:"https://api.covid19tracking.narrativa.com/api/2020-05-22/country/jordan") {
+        let date = Date()
+        
+        if let url = URL(string:"https://api.covid19tracking.narrativa.com/api/2021-05-22/country/jordan") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {

@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import SVGKit
 
 class MapViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class MapViewController: UIViewController {
     var allCapitals = [AllCountries]()
     var covidCases: CovidCases?
     var capitals = [Capital]()
+    var countryDetails: Country?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,32 +63,46 @@ extension MapViewController: MKMapViewDelegate {
         let reuseIdentifier = "Capital"
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-
-            if annotationView == nil {
-                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-                annotationView?.canShowCallout = true
-                let btn = UIButton(type: .detailDisclosure)
-                annotationView?.rightCalloutAccessoryView = btn
-            } else {
-                annotationView?.annotation = annotation
-            }
-            return annotationView
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+            let btn = UIButton(type: .detailDisclosure)
+            let countryAnnotation = annotation as! Capital
+            btn.accessibilityIdentifier = countryAnnotation.title
+            btn.addTarget(self, action: #selector(openNewsPageButtonPressed(sender:)), for: .touchUpInside)
+            annotationView?.rightCalloutAccessoryView = btn
+        } else {
+            annotationView?.annotation = annotation
+        }
+        return annotationView
+    }
+    
+    @objc func openNewsPageButtonPressed(sender: UIButton) {
+        self.country = sender.accessibilityIdentifier
+        self.performSegue(withIdentifier: "goToSelectedCountry", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToSelectedCountry" {
             if let viewController = segue.destination as? SelectedCountryViewController {
+                let today = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let dateString = formatter.string(from: today)
+                
                 viewController.country = self.country
+                viewController.date = dateString
             }
+        }
+        
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            guard let capital = view.annotation as? Capital else { return }
+            let placeName = capital.title
+            let placeInfo = capital.info
+            self.performSegue(withIdentifier: "goToSelectedCountry", sender: self)
+        }
     }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        guard let capital = view.annotation as? Capital else { return }
-        let placeName = capital.title
-        let placeInfo = capital.info
-        self.performSegue(withIdentifier: "goToSelectedCountry", sender: self)
-    }
-}
 }
 
 
@@ -129,24 +145,24 @@ extension MapViewController {
             task.resume()
         }
     }
-//   private func getImage(from string: String) -> UIImage? {
-//        var flagImage: UIImage? = nil
-//        guard let url = URL(string: string)
-//        else {
-//            print("Unable to create URL")
-//            return nil
-//        }
-//
-//        do {
-//            let data = try Data(contentsOf: url, options: [])
-//            let flagSVGImage: SVGKImage = SVGKImage(data: data)
-//            flagImage = flagSVGImage.uiImage
-//        }
-//        catch {
-//            print(error.localizedDescription)
-//        }
-//        return flagImage
-//    }
+    //   private func getImage(from string: String) -> UIImage? {
+    //        var flagImage: UIImage? = nil
+    //        guard let url = URL(string: string)
+    //        else {
+    //            print("Unable to create URL")
+    //            return nil
+    //        }
+    //
+    //        do {
+    //            let data = try Data(contentsOf: url, options: [])
+    //            let flagSVGImage: SVGKImage = SVGKImage(data: data)
+    //            flagImage = flagSVGImage.uiImage
+    //        }
+    //        catch {
+    //            print(error.localizedDescription)
+    //        }
+    //        return flagImage
+    //    }
     
     
     

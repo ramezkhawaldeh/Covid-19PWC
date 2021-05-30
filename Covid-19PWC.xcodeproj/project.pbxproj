@@ -131,12 +131,9 @@
 		9220CAA826527846009949D8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92DA72F22652664900DA354B /* ViewController.swift */,
-				9220CAB026527F5A009949D8 /* NewsViewController.swift */,
+				92A52CF2266397FD00C5AB78 /* removed */,
 				925F40732652E64700FC3D99 /* MapViewController.swift */,
-				925F40752652E93700FC3D99 /* NewsFloatingViewController.swift */,
 				925F407E2652F5C400FC3D99 /* MainViewController.swift */,
-				925F4092265441D200FC3D99 /* testViewController.swift */,
 				92F53CB42655916B00CF100F /* SelectedCountryViewController.swift */,
 			);
 			path = Controller;
@@ -194,6 +191,17 @@
 				925F40C826549CC000FC3D99 /* UIViewControlle-Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		92A52CF2266397FD00C5AB78 /* removed */ = {
+			isa = PBXGroup;
+			children = (
+				92DA72F22652664900DA354B /* ViewController.swift */,
+				9220CAB026527F5A009949D8 /* NewsViewController.swift */,
+				925F40752652E93700FC3D99 /* NewsFloatingViewController.swift */,
+				925F4092265441D200FC3D99 /* testViewController.swift */,
+			);
+			path = removed;
 			sourceTree = "<group>";
 		};
 		92DA72E22652664900DA354B = {
